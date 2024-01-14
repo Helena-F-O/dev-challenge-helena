@@ -1,0 +1,138 @@
+/* Reset default styles and set a light gray background color for the body */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Container styling for the main content */
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the container holding the logo */
+.container-logo {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styling for the search input field */
+#searchInput {
+  font-size: 20px;
+  width: 80%;
+  border-radius: 5px;
+}
+
+/* Styling for the search button */
+button {
+  width: 10%;
+  height: 30px !important;
+  padding: 0;
+  border-radius: 5px;
+  margin-top: 10px;
+  background-color: lightgrey;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hover effect for the search button */
+button:hover {
+  background-color: gray;
+}
+
+/* Styling for the total results line */
+.totalResultsLine {
+  font-size: 15px;
+  color: #9E9E9E;
+}
+
+/* Styling for the container holding search results */
+#resultsContainer {
+  margin-top: 20px;
+}
+
+/* Styling for each individual search result box */
+.result-box {
+  border: 2px solid lightgray;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Styling for the title bar within each result box */
+.box-title {
+  width: 100%;
+  border-bottom: solid 1px lightgray;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Styling for the title*/
+h3 {
+  padding-left: 20px;
+}
+
+/* Styling for the item count within each result box */
+.item-count {
+  margin: 3%;
+  color: lightgray;
+}
+
+/* Styling for the search result text */
+.result-search-box {
+  color: red;
+}
+
+/* Styling for each item within the result list */
+li {
+  padding: 5px;
+  list-style-type: none;
+}
+
+/* Styling for each match within the result list */
+.list-item-match {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+/* Styling for the result table */
+.result-table {
+  margin-top: 10px;
+}
+
+/* Styling for the ID column */
+.column-id {
+  text-decoration: underline;
+  color: red;
+  min-width: 100px;
+  margin-left: 15px;
+  font-weight: bold;
+}
+
+/* Styling for the description column */
+.column-description {
+  margin-left: 20px;
+  font-weight: bold;
+  min-width: 330px;
+}
+
+/* Styling for the "not found" message */
+.not-found {
+  width: 100%;
+  color: lightgray;
+}
+
+/* Styling for the quantity column */
+.column-qtd {
+  font-weight: bold;
+}

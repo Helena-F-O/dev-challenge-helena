@@ -1,0 +1,209 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Search API",
+      "version": "1.0.0",
+      "description": "An API for searching items in various data files."
+    },
+    "paths": {
+      "/": {
+        "get": {
+          "summary": "Home Page",
+          "description": "Route for the home page.",
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "description": "Response message"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api-docs": {
+        "get": {
+          "summary": "Swagger UI",
+          "description": "Route for serving Swagger UI documentation.",
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "description": "Response message"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/search": {
+        "post": {
+          "summary": "Search API",
+          "description": "Endpoint for searching items.",
+          "consumes": ["application/x-www-form-urlencoded"],
+          "parameters": [
+            {
+              "in": "formData",
+              "name": "searchTerm",
+              "type": "string",
+              "description": "The search term."
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "results": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "arquivo": { "type": "string", "description": "The file name" },
+                        "conteudo": { "type": "array", "description": "Search results in the file" }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request - Invalid input."
+            },
+            "404": {
+              "description": "Not Found - Resource not found."
+            }
+          },
+          "examples": {
+            "searchExample": {
+              "summary": "Exemplo de uma solicitação de pesquisa",
+              "value": {
+                "searchTerm": "mesa ret"
+              }
+            },
+            "searchResponseExample": {
+              "summary": "Exemplo de uma resposta bem-sucedida",
+              "value": {
+                "results": [
+                  {
+                    "arquivo": "equipments.json",
+                    "conteudo": [
+                      {
+                        "EquipmentID": "CMRP1",
+                        "EquipmentName": "Cortador Tampo Mesa Retangular Pequeno"
+                      },
+                      {
+                        "EquipmentID": "CMRG1",
+                        "EquipmentName": "Cortador Tampo Mesa Retangular Grande"
+                      }
+                    ]
+                  },
+                  {
+                    "arquivo": "materials.json",
+                    "conteudo": [
+                      {
+                        "MaterialID": "MR1X-5",
+                        "MaterialName": "Mesa Retangular 1m x 50cm"
+                      },
+                      {
+                        "MaterialID": "MR2X1",
+                        "MaterialName": "Mesa Retangular 2m x 1m"
+                      },
+                      {
+                        "MaterialID": "MR3X1",
+                        "MaterialName": "Mesa Retangular 3m x 1m"
+                      },
+                      {
+                        "MaterialID": "MR3X2",
+                        "MaterialName": "Mesa Retangular 3m x 2m"
+                      },
+                      {
+                        "MaterialID": "TMR",
+                        "MaterialName": "Tampo para Mesa Retangular"
+                      },
+                      {
+                        "MaterialID": "MR4X2",
+                        "MaterialName": "Mesa Retangular 4m x 2m"
+                      },
+                      {
+                        "MaterialID": "MR5X2",
+                        "MaterialName": "Mesa Retangular 5m x 2m"
+                      }
+                    ]
+                  },
+                  {
+                    "arquivo": "purchase_orders.json",
+                    "conteudo": [
+                      {
+                        "PurchaseOrderID": 12289,
+                        "MaterialID": "TMR",
+                        "MaterialName": "Tampo para Mesa Retangular",
+                        "Quantity": 120,
+                        "TotalCost": 120
+                      }
+                    ]
+                  },
+                  {
+                    "arquivo": "sales_orders.json",
+                    "conteudo": [
+                      {
+                        "SalesOrderID": 20450,
+                        "MaterialID": "MR2X1",
+                        "MaterialName": "Mesa Retangular 2m x 1m",
+                        "Quantity": 20,
+                        "TotalValue": 2000
+                      },
+                      {
+                        "SalesOrderID": 21200,
+                        "MaterialID": "MR3X2",
+                        "MaterialName": "Mesa Retangular 3m x 2m",
+                        "Quantity": 40,
+                        "TotalValue": 4000 
+                      },
+                      {
+                        "SalesOrderID": 22152,
+                        "MaterialID": "MR1X-5",
+                        "MaterialName": "Mesa Retangular 1m x 50cm",
+                        "Quantity": 30,
+                        "TotalValue": 3000
+                      },
+                      {
+                        "SalesOrderID": 23485,
+                        "MaterialID": "MR2X1",
+                        "MaterialName": "Mesa Retangular 2m x 1m",
+                        "Quantity": 26,
+                        "TotalValue": 2600
+                      },
+                      {
+                        "SalesOrderID": 24685,
+                        "MaterialID": "MR3X1",
+                        "MaterialName": "Mesa Retangular 3m x 1m",
+                        "Quantity": 15,
+                        "TotalValue": 1500
+                      }
+                    ]
+                  },
+                  {
+                    "arquivo": "workforce.json",
+                    "conteudo": []
+                  }
+                ]
+              }
+            }
+          }          
+        }
+      }
+    }
+  }
+  
